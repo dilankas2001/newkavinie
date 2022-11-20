@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDeV1964l-KvfIWUnDHLzrHp2j_4Xmstck</string>
+	<key>GCM_SENDER_ID</key>
+	<string>96130726322</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.kavinie</string>
+	<key>PROJECT_ID</key>
+	<string>kavini-e7d88</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kavini-e7d88.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:96130726322:ios:68f863f775e419481d4cab</string>
+</dict>
+</plist>

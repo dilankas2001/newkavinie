@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96130726322",
+    "project_id": "kavini-e7d88",
+    "storage_bucket": "kavini-e7d88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96130726322:android:ca7e2aedf53403bf1d4cab",
+        "android_client_info": {
+          "package_name": "com.example.kavinie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96130726322-3fh1mmr526jh4d4b5msftpf181ledss0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByy8pIDR2PUO4I3nTfwCQ__dvTjBvExV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96130726322-3fh1mmr526jh4d4b5msftpf181ledss0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
