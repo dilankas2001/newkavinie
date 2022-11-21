@@ -120,7 +120,7 @@ class _HomeExtendState extends State<HomeExtend> {
               children:[
 
                 Text(
-                  "Customer Name - "+displayName,
+                  "Customer Name : "+displayName,
                   style: TextStyle(
                     letterSpacing: 1.0, // default is 0.0
                     color: Colors.white,
