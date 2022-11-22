@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:kavinie/wapper.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreenloder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Clean Code',
-        home: AnimatedSplashScreen(
+    return  AnimatedSplashScreen(
             duration: 3000,
-            splash: Icons.cloud,
-            nextScreen: MainScreen(),
+            splash: Image(image: AssetImage('assets/images/img.png')),
+            nextScreen: wapper(),
             splashTransition: SplashTransition.fadeTransition,
             //pageTransitionType: PageTransitionType.scale,
-            backgroundColor: Colors.white));
+            backgroundColor: Colors.white);
   }
 }

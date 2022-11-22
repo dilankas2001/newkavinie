@@ -4,7 +4,7 @@ import 'package:kavinie/login_screen.dart';
 import 'package:kavinie/wapper.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
+import 'package:kavinie/spalashscreen.dart';
 import 'datapage.dart';
 
 

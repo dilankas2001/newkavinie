@@ -32,7 +32,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               Container(
                 width: 223,
                 height: 215,
-               // child: Image(image: AssetImage('assets/images/logo.png'),),
+                child: Image(image: AssetImage('assets/images/img.png')),
               ),
               Container(
                   alignment: Alignment.center,

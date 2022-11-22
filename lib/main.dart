@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kavinie/auth_checker.dart';
 import 'package:kavinie/datapage.dart';
+import 'package:kavinie/spalashscreen.dart';
 import 'package:kavinie/wapper.dart';
 
 import 'firebase_options.dart';
@@ -25,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: wapper(),
+      home: SplashScreenloder(),
     );
   }
 }

@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "96130726322",
+    "firebase_url": "https://kavini-e7d88-default-rtdb.firebaseio.com",
     "project_id": "kavini-e7d88",
     "storage_bucket": "kavini-e7d88.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:96130726322:android:ca7e2aedf53403bf1d4cab",
+        "mobilesdk_app_id": "1:96130726322:android:6b163c1a519e6d191d4cab",
         "android_client_info": {
           "package_name": "com.example.kavinie"
         }
@@ -29,6 +30,13 @@
             {
               "client_id": "96130726322-3fh1mmr526jh4d4b5msftpf181ledss0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kavinie"
+              }
             }
           ]
         }
