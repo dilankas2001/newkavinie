@@ -48,6 +48,7 @@ class _DataState extends State<Data> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(title:Text("EBMS"),
           backgroundColor:Colors.pink
       ),
