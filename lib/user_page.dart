@@ -4,6 +4,7 @@ import 'package:kavinie/main.dart';
 import 'package:kavinie/model/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:kavinie/other/home.dart';
 
 class UserPage extends StatefulWidget {
   @override
@@ -12,26 +13,26 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final formKey = GlobalKey<FormState>();
-  late TextEditingController id;
+  late TextEditingController Accountnumber;
   late TextEditingController controllerName;
-  late TextEditingController controllerAge;
-  late TextEditingController controllerDate;
+  late TextEditingController controllerLastread;
+  late TextEditingController controllerNewread;
 
   @override
   void initState() {
     super.initState();
-    id = TextEditingController();
+    Accountnumber = TextEditingController();
     controllerName = TextEditingController();
-    controllerAge = TextEditingController();
-    controllerDate = TextEditingController();
+    controllerLastread = TextEditingController();
+    controllerNewread = TextEditingController();
   }
 
   @override
   void dispose() {
-    id.dispose();
+    Accountnumber.dispose();
     controllerName.dispose();
-    controllerAge.dispose();
-    controllerDate.dispose();
+    controllerLastread.dispose();
+    controllerNewread.dispose();
 
     super.dispose();
   }
@@ -47,8 +48,8 @@ class _UserPageState extends State<UserPage> {
             padding: EdgeInsets.all(16),
             children: <Widget>[
               TextFormField(
-                controller: id,
-                decoration: decoration('id'),
+                controller: Accountnumber,
+                decoration: decoration('Account Number'),
                 validator: (text) =>
                 text != null && text.isEmpty ? 'Not valid input' : null,
               ),
@@ -61,53 +62,44 @@ class _UserPageState extends State<UserPage> {
               ),
               const SizedBox(height: 24),
               TextFormField(
-                controller: controllerAge,
-                decoration: decoration('Age'),
-                keyboardType: TextInputType.number,
-                validator: (text) => text != null && int.tryParse(text) == null
-                    ? 'Not valid input'
-                    : null,
+                controller: controllerLastread,
+                decoration: decoration('Last Read'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
               ),
               const SizedBox(height: 24),
-              DateTimeField(
-                controller: controllerDate,
-                decoration: decoration('Birthday'),
-                validator: (dateTime) =>
-                    dateTime == null ? 'Not valid input' : null,
-                format: DateFormat('yyyy-MM-dd'),
-                onShowPicker: (context, currentValue) => showDatePicker(
-                  context: context,
-                  firstDate: DateTime(1900),
-                  lastDate: DateTime(2100),
-                  initialDate: currentValue ?? DateTime.now(),
-                ),
-              ), const SizedBox(height: 32),
+
+              const SizedBox(height: 32),
   ElevatedButton(
   child: Text('Create'),
   onPressed: () {
   final isValid = formKey.currentState!.validate();
-
   if (isValid) {
   final user = User(
-  id: id.text,
-  name: controllerName.text,
-  age: int.parse(controllerAge.text),
-  birthday: DateTime.parse(controllerDate.text),
+  AccountNumber: Accountnumber.text,
+  CustomerName: controllerName.text,
+    LastRead: controllerLastread.text,
+    NewRead: controllerNewread.text,
+
+
   );
-
-
                     createUser(user);
 
                     final snackBar = SnackBar(
                       backgroundColor: Colors.green,
                       content: Text(
-                        'Added ${controllerName.text} to Firebase!',
+                        'Added ${Accountnumber.text} to Firebase!',
                         style: TextStyle(fontSize: 24),
                       ),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
                     Navigator.pop(context);
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) =>Home()
+    ),
+  );
                   }
                 },
               ),
@@ -121,7 +113,7 @@ class _UserPageState extends State<UserPage> {
       );
 
   Future createUser(User user) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc(id.text);
+    final docUser = FirebaseFirestore.instance.collection('report').doc(Accountnumber.text);
     //user.id = docUser.id;
 
     final json = user.toJson();

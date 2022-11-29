@@ -5,9 +5,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:kavinie/add.dart';
+import 'package:kavinie/login_controller.dart';
+import 'package:kavinie/user_page.dart';
 
-import 'addnote.dart';
-import 'editnote.dart';
+import 'addindex.dart';
+import 'createbill.dart';
 
 
 class Home extends StatefulWidget {
@@ -48,15 +51,38 @@ class _HomeState extends State<Home> {
         backgroundColor: Color.fromARGB(255, 243, 20, 118),
         onPressed: () {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => addnote()));
+              context, MaterialPageRoute(builder: (_) => Useradd()));
         },
         child: Icon(
           Icons.add,
         ),
       ),
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 220, 41, 239),
-        title: Text('Students'),
+      appBar: AppBar(title:Text("EBMS"),
+        backgroundColor:Colors.pink,
+        actions: <Widget>[
+
+          //IconButton
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'loout Icon',
+            onPressed: () {
+              signOut();
+              //signout function
+
+            },
+          ), //IconButton
+        ], //<Widget>[]
+
+        elevation: 50.0,
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          tooltip: 'Menu Icon',
+          onPressed: () async {
+            // Navigator.push(context,
+            // MaterialPageRoute(builder: (context) => TestHome()));
+
+          },
+        ),
       ),
       body: StreamBuilder(
         stream: _usersStream,
@@ -75,8 +101,6 @@ class _HomeState extends State<Home> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
             ),
-
-
             child: ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (_, index) {
@@ -91,22 +115,7 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Column(
-
                     children: [
-                      SizedBox(
-                        height: 4,
-                      ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        width: 199,
-                        height: 185,
-                        child: Image(image: AssetImage('assets/images/img.png')),
-                      ),
-                    ],
-                  ),
                       SizedBox(
                         height: 4,
                       ),
@@ -143,5 +152,8 @@ class _HomeState extends State<Home> {
         },
       ),
     );
+  }
+
+  Future<void> signOut() async {
   }
 }

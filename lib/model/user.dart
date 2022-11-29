@@ -1,30 +1,30 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User {
-  late final String id;
-  final String name;
-  final int age;
-  final DateTime birthday;
+  late final String AccountNumber;
+  final String CustomerName;
+  final String LastRead;
+  final String NewRead;
 
   User({
-    required this.id ,
-    required this.name,
-    required this.age,
-    required this.birthday,
+    required this.AccountNumber ,
+    required this.CustomerName,
+    required this.LastRead,
+    required this.NewRead,
   });
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'age': age,
-    'birthday': birthday,
+    'AccountNumber': AccountNumber,
+    'CustomerName': CustomerName,
+    'LastRead': LastRead,
+    'NewRead': NewRead,
   };
 
   static User fromJson(Map<String, dynamic> json) => User(
-    id: json['id'],
-    name: json['name'],
-    age: json['age'],
-    birthday: (json['birthday'] as Timestamp).toDate(),
+    AccountNumber: json['AccountNumber'],
+    CustomerName: json['CustomerName'],
+    LastRead: json['LastRead'],
+    NewRead: json['NewRead'],
   );
 }
 
