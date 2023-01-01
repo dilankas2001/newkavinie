@@ -34,22 +34,22 @@ class _GenaratedBillState extends State<GenaratedBill> {
       Newread = widget.docid.get('NewRead');
 
       Units = int.parse(Newread) - int.parse(Lastread);
-      if (Units<= 100){
+      if (Units <= 100) {
         payAmount = Units * 1.5;
         fixedcharge = 25.00;
-      }else if (Units <= 200) {
+      } else if (Units <= 200) {
         payAmount = (100 * 1.5) + (Units - 100) * 2.5;
         fixedcharge = 50.00;
-      }
-      else if (Units <= 300) {
+      } else if (Units <= 300) {
         payAmount = (100 * 1.5) + (200 - 100) * 2.5 + (Units - 200) * 4;
         fixedcharge = 75.00;
-      }
-      else if (Units <= 350) {
-        payAmount = (100 * 1.5) + (200 - 100) * 2.5 + (300 - 200) * 4 + (Units - 300) * 5;
+      } else if (Units <= 350) {
+        payAmount = (100 * 1.5) +
+            (200 - 100) * 2.5 +
+            (300 - 200) * 4 +
+            (Units - 300) * 5;
         fixedcharge = 100.00;
-      }
-      else {
+      } else {
         payAmount = 0;
         fixedcharge = 1500.00;
       }
@@ -62,9 +62,7 @@ class _GenaratedBillState extends State<GenaratedBill> {
 
   @override
   Widget build(BuildContext context) {
-
     return PdfPreview(
-
       // maxPageWidth: 1000,
       // useActions: false,
       // canChangePageFormat: true,
@@ -84,9 +82,6 @@ class _GenaratedBillState extends State<GenaratedBill> {
     final font1 = await PdfGoogleFonts.openSansRegular();
     final font2 = await PdfGoogleFonts.openSansBold();
     final image = await imageFromAssetBundle('assets/images/img.png');
-
-
-
 
     doc.addPage(
       pw.Page(
@@ -108,7 +103,7 @@ class _GenaratedBillState extends State<GenaratedBill> {
               child: pw.Column(
             mainAxisAlignment: pw.MainAxisAlignment.center,
             children: [
-             /* pw.Flexible(
+              /* pw.Flexible(
                 child: pw.SvgImage(
                   svg: _logo,
                   height: 100,
@@ -119,9 +114,9 @@ class _GenaratedBillState extends State<GenaratedBill> {
               ),
               pw.Center(
                 child: pw.Text(
-                  'Ceylon Electricity bord',
+                  'Ceylon Electricity Board',
                   style: pw.TextStyle(
-                    fontSize:25,
+                    fontSize: 25,
                   ),
                 ),
               ),
@@ -215,7 +210,6 @@ class _GenaratedBillState extends State<GenaratedBill> {
                   ),
                 ],
               ),
-
               pw.Divider(),
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.center,

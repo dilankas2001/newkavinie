@@ -13,6 +13,7 @@ void main() async {
   );
   runApp(ProviderScope(child: MyApp()));
 }
+
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -29,5 +30,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-

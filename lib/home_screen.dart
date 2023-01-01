@@ -9,30 +9,20 @@ import 'package:kavinie/other/home.dart';
 import 'package:kavinie/user_page.dart';
 import 'add.dart';
 
-
 import 'package:controller/controller.dart';
 import 'package:flutter_text_form_field/flutter_text_form_field.dart';
 
-
-
-
-
 class HomePage extends HookConsumerWidget {
- // const HomePage({Key? key}) : super(key: key)
-
+  // const HomePage({Key? key}) : super(key: key)
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       home: HomeExtend(),
     );
-
   }
 }
-
-
 
 class HomeExtend extends StatefulWidget {
   @override
@@ -40,17 +30,16 @@ class HomeExtend extends StatefulWidget {
 }
 
 class _HomeExtendState extends State<HomeExtend> {
-
   final formKey = GlobalKey<FormState>();
   late TextEditingController id;
   CollectionReference users = FirebaseFirestore.instance.collection('users');
-  String displayUnit= 'no signal';
+  String displayUnit = 'no signal';
   String displayPrevious = 'no signal';
   String displayName = 'no signal';
   late StreamSubscription _esp32;
   //const HomeExtend({Key? key}) : super(key: key);
   final databse = FirebaseDatabase.instance.ref();
-   final TextEditingController _Namecontroller = TextEditingController();
+  final TextEditingController _Namecontroller = TextEditingController();
   final TextEditingController _Previouscontroller = TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
   signOut() async {
@@ -58,6 +47,7 @@ class _HomeExtendState extends State<HomeExtend> {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => LoginScreen()));
   }
+
   void initState() {
     // super.initState();
     _activateListeners();
@@ -67,11 +57,8 @@ class _HomeExtendState extends State<HomeExtend> {
   void dispose() {
     id.dispose();
 
-
     super.dispose();
   }
-
-
 
   void _activateListeners() async {
     _esp32 = databse.child("Py1/User").onValue.listen((event) {
@@ -79,27 +66,25 @@ class _HomeExtendState extends State<HomeExtend> {
       final Object? Units = data['Units'];
       final Object? Previous = data['Previous'];
       final Object? Name = data['Name'];
-     
+
       setState(() {
         displayUnit = ' $Units';
         displayPrevious = '$Previous';
-        displayName='$Name';
-       
+        displayName = '$Name';
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     final Stream<QuerySnapshot> _usersStream =
-    FirebaseFirestore.instance.collection('users').snapshots();
+        FirebaseFirestore.instance.collection('users').snapshots();
     final dataRef = databse.child('Py/Users');
-    return
-      Scaffold(
-
-      appBar: AppBar(title:Text("EBMS"),
-          backgroundColor:Colors.pink,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("EBMS"),
+        backgroundColor: Color.fromARGB(255, 233, 54, 30),
         actions: <Widget>[
-
           //IconButton
           IconButton(
             icon: const Icon(Icons.logout),
@@ -107,7 +92,6 @@ class _HomeExtendState extends State<HomeExtend> {
             onPressed: () {
               signOut();
               //signout function
-
             },
           ), //IconButton
         ], //<Widget>[]
@@ -119,110 +103,84 @@ class _HomeExtendState extends State<HomeExtend> {
           onPressed: () async {
             // Navigator.push(context,
             // MaterialPageRoute(builder: (context) => TestHome()));
-
           },
         ),
       ),
+      body: StreamBuilder(
+          stream: _usersStream,
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (snapshot.hasError) {
+              return Text("something is wrong");
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
 
-
-      body:StreamBuilder(
-    stream: _usersStream,
-    builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-      if (snapshot.hasError) {
-        return Text("something is wrong");
-      }
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-
-      return Center(
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: 199,
-                height: 185,
-                child: Image(image: AssetImage('assets/images/img.png')),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
-                color: Color(0xffd9d9d9),
-                //padding: const EdgeInsets.only(left: 131, right: 152, top: 21, bottom: 15, ),
-
-              ),
-              SizedBox(height: 36),
-
-
-
-        ElevatedButton(
-        child: Text(
-        "Calulate Bill".toUpperCase(),
-        style: TextStyle(fontSize: 14)
-        ),
-        style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(
-        Colors.white),
-        backgroundColor: MaterialStateProperty.all<Color>(
-        Colors.pink),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
-        side: BorderSide(color: Colors.pink)
-        )
-        )
-        ),
-        onPressed: () async {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => Home()));
-        }
-        ),
-
-              SizedBox(height: 36),
-
-
-              ElevatedButton(
-                  child: Text(
-                      "Register".toUpperCase(),
-                      style: TextStyle(fontSize: 14)
-                  ),
-                  style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                          Colors.white),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          Colors.pink),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
-                              side: BorderSide(color: Colors.pink)
-                          )
-                      )
-                  ),
-                  onPressed: () async {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => UserPage()));
-
-                  }
-              ),
-
-
-            ]
-
-
-        ),
-      );
-
-    }
-
-    ),
-
-
-
+            return Center(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 199,
+                      height: 185,
+                      child: Image(image: AssetImage('assets/images/img.png')),
+                    ),
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                      color: Color(0xffd9d9d9),
+                      //padding: const EdgeInsets.only(left: 131, right: 152, top: 21, bottom: 15, ),
+                    ),
+                    SizedBox(height: 36),
+                    ElevatedButton(
+                        child: Text("Calculate Bill".toUpperCase(),
+                            style: TextStyle(fontSize: 14)),
+                        style: ButtonStyle(
+                            minimumSize:
+                                MaterialStateProperty.all(const Size(500, 40)),
+                            foregroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 16, 11, 11)),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 249, 225, 10)),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                    side: BorderSide(color: Colors.pink)))),
+                        onPressed: () async {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => Home()));
+                        }),
+                    SizedBox(height: 36),
+                    ElevatedButton(
+                        child: Text("Register New Customer".toUpperCase(),
+                            style: TextStyle(fontSize: 14)),
+                        style: ButtonStyle(
+                            minimumSize:
+                                MaterialStateProperty.all(const Size(500, 40)),
+                            overlayColor: MaterialStateProperty.all(
+                                Color.fromARGB(255, 254, 248, 247)),
+                            foregroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 21, 20, 11)),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 249, 225, 10)),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                    side: BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 245, 22, 22))))),
+                        onPressed: () async {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (_) => UserPage()));
+                        }),
+                  ]),
+            );
+          }),
     );
   }
 }
-
-
-
