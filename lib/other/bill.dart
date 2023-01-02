@@ -23,15 +23,25 @@ class _GenaratedBillState extends State<GenaratedBill> {
   var Newread;
   var payAmount;
   var fixedcharge;
+  var Address;
+  var ContactNo;
+  var email;
 
   var Units;
   var Total;
+  var Year;
+  var Month;
   void initState() {
     setState(() {
       name = widget.docid.get('CustomerName');
       Accountno = widget.docid.get('AccountNumber');
+      Address = widget.docid.get('Address');
+      ContactNo= widget.docid.get('ContactNo');
+      email= widget.docid.get('email');
       Lastread = widget.docid.get('LastRead');
       Newread = widget.docid.get('NewRead');
+      Year = widget.docid.get('Year');
+      Month = widget.docid.get('Month');
 
       Units = int.parse(Newread) - int.parse(Lastread);
       if (Units <= 100) {
@@ -123,9 +133,33 @@ class _GenaratedBillState extends State<GenaratedBill> {
               pw.SizedBox(
                 height: 20,
               ),
+
+              pw.SizedBox(
+                height: 20,
+              ),
               pw.Divider(),
+
               pw.Row(
+
                 mainAxisAlignment: pw.MainAxisAlignment.center,
+
+                children: [
+                  pw.Center(
+                    child: pw.Text(
+                      'Customer Details',
+                      style: pw.TextStyle(
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+
+              pw.Row(
+
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+
                 children: [
                   pw.Text(
                     'Customer Name : ',
@@ -158,6 +192,78 @@ class _GenaratedBillState extends State<GenaratedBill> {
                   ),
                 ],
               ),
+
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Text(
+                    'Address : ',
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  pw.Text(
+                    Address,
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Text(
+                    'Contact Number : ',
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  pw.Text(
+                    ContactNo,
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Text(
+                    'Year : ',
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  pw.Text(
+                    Year,
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Text(
+                    'Month : ',
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                  pw.Text(
+                    Month,
+                    style: pw.TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.center,
                 children: [

@@ -54,6 +54,18 @@ class _wapperState extends State<wapper> {
                   ),
                   SizedBox(height: 57.50),
                   Container(
+                      width: 300,
+                      height: 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("Alredy Have in Account Sign In Now")
+                        ],
+                      ),
+                  ),
+                  Container(
+                    
                     width: 300,
                     height: 50,
                     child: Row(
@@ -62,12 +74,14 @@ class _wapperState extends State<wapper> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children:[
 
+                        
 
                         Row(
                          // mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children:[
+
                             SignInButtonBuilder(
                               text: 'SignIn With Email',
                               icon: Icons.email,
@@ -86,6 +100,17 @@ class _wapperState extends State<wapper> {
                     ),
                   ),
                   SizedBox(height: 57.50),
+                  Container(
+                    width: 300,
+                    height: 40,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Alredy don't Have in Account Register Now")
+                      ],
+                    ),
+                  ),
                   Container(
                     height: 50,
                     width: 300,

@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kavinie/login_screen.dart';
 import 'package:kavinie/other/home.dart';
+
 import 'package:kavinie/user_page.dart';
-import 'add.dart';
+//import 'add.dart';
 
 import 'package:controller/controller.dart';
 import 'package:flutter_text_form_field/flutter_text_form_field.dart';
@@ -178,6 +179,8 @@ class _HomeExtendState extends State<HomeExtend> {
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (_) => UserPage()));
                         }),
+                    SizedBox(height: 36),
+
                   ]),
             );
           }),

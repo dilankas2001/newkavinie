@@ -17,7 +17,7 @@ class editnote extends StatefulWidget {
 
 class _editnoteState extends State<editnote> {
   DocumentSnapshot docid;
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference users = FirebaseFirestore.instance.collection('Bill');
   String displayUnit= 'no signal';
   String displayPrevious = 'no signal';
   String displayName = 'no signal';
@@ -30,9 +30,15 @@ class _editnoteState extends State<editnote> {
   _editnoteState({required this.docid});
   TextEditingController AccountNumber = TextEditingController();
   TextEditingController CustomerName = TextEditingController();
+  TextEditingController Address = TextEditingController();
+  TextEditingController ContactNo = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController LastRead = TextEditingController();
   TextEditingController NewRead = TextEditingController();
   TextEditingController Unit = TextEditingController();
+  TextEditingController Year = TextEditingController();
+  TextEditingController Month = TextEditingController();
+
 
 
 
@@ -59,8 +65,14 @@ class _editnoteState extends State<editnote> {
     _activateListeners();
     AccountNumber = TextEditingController(text: widget.docid.get('AccountNumber'));
     CustomerName = TextEditingController(text: widget.docid.get('CustomerName'));
+    Address = TextEditingController(text: widget.docid.get('Address'));
+    ContactNo = TextEditingController(text: widget.docid.get('ContactNo'));
+    email = TextEditingController(text: widget.docid.get('email'));
     LastRead = TextEditingController(text: widget.docid.get('LastRead'));
     NewRead = TextEditingController(text: widget.docid.get('NewRead'));
+    Year =TextEditingController(text: widget.docid.get('Year'));
+    Month = TextEditingController(text: widget.docid.get('Month'));
+
 
 
     super.initState();
@@ -70,7 +82,7 @@ class _editnoteState extends State<editnote> {
   Widget build(BuildContext context) {
 
     final Stream<QuerySnapshot> _usersStream =
-    FirebaseFirestore.instance.collection('users').snapshots();
+    FirebaseFirestore.instance.collection('Bill').snapshots();
     final dataRef = databse.child('Py/Users');
     return Scaffold(
       appBar: AppBar(title:Text("EBMS"),
@@ -159,44 +171,98 @@ class _editnoteState extends State<editnote> {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
-                child: TextField(
-                  controller: AccountNumber,
-                  decoration: InputDecoration(
-                    hintText: 'AccountNumber',
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: AccountNumber,
+                decoration: decoration('Account Number'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: CustomerName,
+                decoration: decoration('Customer Name'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: Address,
+                decoration: decoration('Address'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 10,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: ContactNo,
+                decoration: decoration('Contact No'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 10,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: email,
+                decoration: decoration('email'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                height: 10,
+              ),
 
-                  ),
-                ),
+              TextFormField(
+                controller: Year,
+                decoration: decoration('Year'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
               ),
+              const SizedBox(height: 24),
               SizedBox(
                 height: 10,
               ),
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
-                child: TextField(
-                  controller: CustomerName,
-                  maxLines: null,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintText: 'CustomerName',
-                  ),
-                ),
+
+              TextFormField(
+                controller: Month,
+                decoration: decoration('Month'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
               ),
+              const SizedBox(height: 24),
               SizedBox(
                 height: 10,
               ),
-              Container(
-                decoration: BoxDecoration(border: Border.all()),
-                child: TextField(
-                  controller: LastRead,
-                  maxLines: null,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintText: 'LastRead',
-                  ),
-                ),
+
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: LastRead,
+                decoration: decoration('Last read'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
               ),
+              const SizedBox(height: 24),
               SizedBox(
                 height: 10,
               ),
@@ -210,6 +276,11 @@ class _editnoteState extends State<editnote> {
 
                   widget.docid.reference.update({
                     'CustomerName': CustomerName.text,
+                    'Address':Address.text,
+                    'ContactNo':ContactNo.text,
+                    'email' : email.text,
+                    'Year': Year.text,
+                    'Month':Month.text,
                     'LastRead': LastRead.text,
                     'NewRead': displayUnit,
                     'Total': displayUnit,
@@ -239,4 +310,9 @@ class _editnoteState extends State<editnote> {
       ),
     );
   }
+
+  InputDecoration decoration(String label) => InputDecoration(
+    labelText: label,
+    border: OutlineInputBorder(),
+  );
 }

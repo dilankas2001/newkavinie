@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:kavinie/add.dart';
+
 import 'package:kavinie/login_controller.dart';
 import 'package:kavinie/user_page.dart';
 
@@ -19,12 +19,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference users = FirebaseFirestore.instance.collection('Bill');
   String displayUnit= 'no signal';
   late StreamSubscription _esp32;
   final databse = FirebaseDatabase.instance.ref();
   final Stream<QuerySnapshot> _usersStream =
-  FirebaseFirestore.instance.collection('report').snapshots();
+  FirebaseFirestore.instance.collection('Bill').snapshots();
   @override
 
   void _activateListeners() async {
@@ -47,17 +47,8 @@ class _HomeState extends State<Home> {
     final dataRef = databse.child('Py1/User');
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 243, 20, 118),
-        onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => Useradd()));
-        },
-        child: Icon(
-          Icons.add,
-        ),
-      ),
-      appBar: AppBar(title:Text("EBMS"),
+
+      appBar: AppBar(title:Text("Select Your Account Number"),
         backgroundColor:Colors.pink,
         actions: <Widget>[
 

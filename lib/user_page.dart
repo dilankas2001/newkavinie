@@ -15,8 +15,13 @@ class _UserPageState extends State<UserPage> {
   final formKey = GlobalKey<FormState>();
   late TextEditingController Accountnumber;
   late TextEditingController controllerName;
+  late TextEditingController Address;
+  late TextEditingController ContactNo;
+  late TextEditingController email;
   late TextEditingController controllerLastread;
   late TextEditingController controllerNewread;
+  late TextEditingController Year;
+  late TextEditingController Month;
 
   @override
   void initState() {
@@ -25,6 +30,11 @@ class _UserPageState extends State<UserPage> {
     controllerName = TextEditingController();
     controllerLastread = TextEditingController();
     controllerNewread = TextEditingController();
+    Address =TextEditingController();
+    ContactNo = TextEditingController();
+    email = TextEditingController();
+    Year = TextEditingController();
+    Month = TextEditingController();
   }
 
   @override
@@ -33,6 +43,11 @@ class _UserPageState extends State<UserPage> {
     controllerName.dispose();
     controllerLastread.dispose();
     controllerNewread.dispose();
+    Address.dispose();
+    ContactNo.dispose();
+    email.dispose();
+    Year.dispose();
+    Month.dispose();
 
     super.dispose();
   }
@@ -41,6 +56,7 @@ class _UserPageState extends State<UserPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('Add User'),
+          backgroundColor: Colors.red,
         ),
         body: Form(
           key: formKey,
@@ -61,16 +77,33 @@ class _UserPageState extends State<UserPage> {
                     text != null && text.isEmpty ? 'Not valid input' : null,
               ),
               const SizedBox(height: 24),
+
               TextFormField(
-                controller: controllerLastread,
-                decoration: decoration('Last Read'),
+                controller: Address,
+                decoration: decoration('Address'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: ContactNo,
+                decoration: decoration('Contact No'),
+                validator: (text) =>
+                text != null && text.isEmpty ? 'Not valid input' : null,
+              ),
+              const SizedBox(height: 24),
+              TextFormField(
+                controller: email,
+                decoration: decoration('email'),
                 validator: (text) =>
                 text != null && text.isEmpty ? 'Not valid input' : null,
               ),
               const SizedBox(height: 24),
 
+
               const SizedBox(height: 32),
   ElevatedButton(
+
   child: Text('Create'),
   onPressed: () {
   final isValid = formKey.currentState!.validate();
@@ -80,6 +113,11 @@ class _UserPageState extends State<UserPage> {
   CustomerName: controllerName.text,
     LastRead: controllerLastread.text,
     NewRead: controllerNewread.text,
+    Address: Address.text,
+    ContactNo: ContactNo.text,
+    email: email.text,
+    Year: Year.text,
+    Month: Month.text
 
 
   );
@@ -113,7 +151,7 @@ class _UserPageState extends State<UserPage> {
       );
 
   Future createUser(User user) async {
-    final docUser = FirebaseFirestore.instance.collection('report').doc(Accountnumber.text);
+    final docUser = FirebaseFirestore.instance.collection('Bill').doc(Accountnumber.text);
     //user.id = docUser.id;
 
     final json = user.toJson();
