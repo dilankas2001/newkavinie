@@ -1,42 +1,35 @@
 {
   "project_info": {
-    "project_number": "96130726322",
-    "firebase_url": "https://kavini-e7d88-default-rtdb.firebaseio.com",
-    "project_id": "kavini-e7d88",
-    "storage_bucket": "kavini-e7d88.appspot.com"
+    "project_number": "477903102861",
+    "firebase_url": "https://kavinie-default-rtdb.firebaseio.com",
+    "project_id": "kavinie",
+    "storage_bucket": "kavinie.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:96130726322:android:6b163c1a519e6d191d4cab",
+        "mobilesdk_app_id": "1:477903102861:android:1dc7e15f1a8617459b93c4",
         "android_client_info": {
           "package_name": "com.example.kavinie"
         }
       },
       "oauth_client": [
         {
-          "client_id": "96130726322-3fh1mmr526jh4d4b5msftpf181ledss0.apps.googleusercontent.com",
+          "client_id": "477903102861-flvl0i0k8051qm44r2lh5jgr2r2cc735.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyByy8pIDR2PUO4I3nTfwCQ__dvTjBvExV8"
+          "current_key": "AIzaSyDapKnm0LD7irqtY1jGZVrL5_aWN6eLJT4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "96130726322-3fh1mmr526jh4d4b5msftpf181ledss0.apps.googleusercontent.com",
+              "client_id": "477903102861-flvl0i0k8051qm44r2lh5jgr2r2cc735.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.kavinie"
-              }
             }
           ]
         }

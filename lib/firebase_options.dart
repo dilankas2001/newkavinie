@@ -44,44 +44,44 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB_Z-8MhrMV6i4PCVqm4mEiFVOMUFRHcM8',
-    appId: '1:96130726322:web:3fd91ff5524f5f5e1d4cab',
-    messagingSenderId: '96130726322',
-    projectId: 'kavini-e7d88',
-    authDomain: 'kavini-e7d88.firebaseapp.com',
-    databaseURL: 'https://kavini-e7d88-default-rtdb.firebaseio.com',
-    storageBucket: 'kavini-e7d88.appspot.com',
-    measurementId: 'G-LCKT9S7KWD',
+    apiKey: 'AIzaSyAMGjkaVw4KcsPB-RxAQmfVncso0owIfmc',
+    appId: '1:477903102861:web:3ec7f26f8500bf899b93c4',
+    messagingSenderId: '477903102861',
+    projectId: 'kavinie',
+    authDomain: 'kavinie.firebaseapp.com',
+    databaseURL: 'https://kavinie-default-rtdb.firebaseio.com',
+    storageBucket: 'kavinie.appspot.com',
+    measurementId: 'G-0D8KWM7XJN',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyByy8pIDR2PUO4I3nTfwCQ__dvTjBvExV8',
-    appId: '1:96130726322:android:c1e5185ac95216111d4cab',
-    messagingSenderId: '96130726322',
-    projectId: 'kavini-e7d88',
-    databaseURL: 'https://kavini-e7d88-default-rtdb.firebaseio.com',
-    storageBucket: 'kavini-e7d88.appspot.com',
+    apiKey: 'AIzaSyDapKnm0LD7irqtY1jGZVrL5_aWN6eLJT4',
+    appId: '1:477903102861:android:1dc7e15f1a8617459b93c4',
+    messagingSenderId: '477903102861',
+    projectId: 'kavinie',
+    databaseURL: 'https://kavinie-default-rtdb.firebaseio.com',
+    storageBucket: 'kavinie.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDeV1964l-KvfIWUnDHLzrHp2j_4Xmstck',
-    appId: '1:96130726322:ios:2aeb9053027242311d4cab',
-    messagingSenderId: '96130726322',
-    projectId: 'kavini-e7d88',
-    databaseURL: 'https://kavini-e7d88-default-rtdb.firebaseio.com',
-    storageBucket: 'kavini-e7d88.appspot.com',
-    iosClientId: '96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCb00_0E4WEfzPrX43KHCTe11gIuED7ip0',
+    appId: '1:477903102861:ios:3fe4bfaeeef0fa749b93c4',
+    messagingSenderId: '477903102861',
+    projectId: 'kavinie',
+    databaseURL: 'https://kavinie-default-rtdb.firebaseio.com',
+    storageBucket: 'kavinie.appspot.com',
+    iosClientId: '477903102861-o3pp8vdj713k7hdnol7epod314hffccq.apps.googleusercontent.com',
     iosBundleId: 'com.example.kavinie',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDeV1964l-KvfIWUnDHLzrHp2j_4Xmstck',
-    appId: '1:96130726322:ios:2aeb9053027242311d4cab',
-    messagingSenderId: '96130726322',
-    projectId: 'kavini-e7d88',
-    databaseURL: 'https://kavini-e7d88-default-rtdb.firebaseio.com',
-    storageBucket: 'kavini-e7d88.appspot.com',
-    iosClientId: '96130726322-842ldsou2ds62lbhn86v6c4fgv7h1nk2.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCb00_0E4WEfzPrX43KHCTe11gIuED7ip0',
+    appId: '1:477903102861:ios:3fe4bfaeeef0fa749b93c4',
+    messagingSenderId: '477903102861',
+    projectId: 'kavinie',
+    databaseURL: 'https://kavinie-default-rtdb.firebaseio.com',
+    storageBucket: 'kavinie.appspot.com',
+    iosClientId: '477903102861-o3pp8vdj713k7hdnol7epod314hffccq.apps.googleusercontent.com',
     iosBundleId: 'com.example.kavinie',
   );
 }
